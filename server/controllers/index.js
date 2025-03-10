@@ -5,7 +5,7 @@ export const addProduct = async (req, res) => {
 
     const product = req.body;
 
-    if (!product.name || !product.price || !product.img) {
+    if (!product.name || !product.price || !product.image) {
         return res.status(400).json({ success: false, message: "Please provide information in all the fields." })
     }
 
@@ -34,7 +34,7 @@ export const deleteProduct = async (req, res) => {
 
     try {
         await Product.findByIdAndDelete(id);
-        res.status(200).json({ success: true, message: `Product with ID: ${id}` });
+        res.status(200).json({ success: true, message: `Product with ID Deleted: ${id}` });
     } catch (error) {
         console.error("Product Server Deletion Error: ", error);
         res.status(500).json({ success: true, message: `Product Server Deletion Error: ${error.message}` });
